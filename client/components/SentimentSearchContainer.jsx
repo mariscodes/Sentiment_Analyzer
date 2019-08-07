@@ -35,7 +35,8 @@ class SentimentSearchContainer extends React.Component {
         return (
             <div id='SentimentSearchContainer'>
                 <Sentiment classes={classes.join(' ')} clickMe={this.toggle}></Sentiment>
-                <SearchContainer updateState={this.props.updateState} data={this.props.data}></SearchContainer>
+                {/* <SearchContainer updateState={this.props.updateState} data={this.props.data}></SearchContainer> */}
+                <SearchContainer updateState={this.props.updateState} ></SearchContainer>
             </div>
         )
     }

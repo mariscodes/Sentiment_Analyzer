@@ -36,7 +36,7 @@ class SearchText extends React.Component {
                 })
                 // use an arrow function to re-bind
                 .then(response => {
-                    console.log(response);
+                    console.log('response inside of searchText PROMISE:', response);
                     this.props.updateState(response)
                     return;
                 })

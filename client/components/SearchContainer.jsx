@@ -12,7 +12,8 @@ class SearchContainer extends React.Component {
     render() {
         return (
             <div id='SearchContainer' className='animated heartBeat'>
-                <Search updateState={this.props.updateState} data={this.props.data}></Search>
+                {/* <Search updateState={this.props.updateState} data={this.props.data}></Search> */}
+                <Search updateState={this.props.updateState} ></Search>
             </div>
         )
     }

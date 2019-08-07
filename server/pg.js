@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 
 // const connectionString = process.env.CONNECTIONSTRING;
 // storing this on my local computer due to size limitations. 
-const connectionString = 'postgres://andrewtang@localhost/snape'
+const connectionString = 'postgres://andrewtang@localhost/hndatabase'
 
 const pool = new Pool({
   connectionString: connectionString,

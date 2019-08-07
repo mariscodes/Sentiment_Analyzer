@@ -3,7 +3,7 @@
 //
 
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Pie, Bar, Doughnut, Bubble, Radar, } from 'react-chartjs-2';
 
 // import './chartrender.js';
 
@@ -47,12 +47,14 @@ class Chart extends React.Component {
     }
     
     render() {
-        console.log('Das Data => ', this.props.data.datasets);
-        console.log('PROPDATA FOR CHART' +this.props.data.labels)
+        console.log('Das Data => ', this.props.sentimentData.data);
+        console.log('PROPDATA FOR CHART' +this.props.sentimentData.data.labels)
 
         return (
             <div id='haris' class='animated fadeInUp'>
-                <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line>
+                {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
                 {/* {console.log('das data => ', this.props.data)} */}
             </div>
         )
