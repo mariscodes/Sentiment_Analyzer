@@ -14,7 +14,7 @@ class Search extends React.Component {
             <div id='Search'>
                 {/* <Dropdown title="Query" dropDown={this.props.dropDown} ></Dropdown> */}
                 {/* <SearchText updateState={this.props.updateState} data={this.props.data}></SearchText> */}
-                <SearchText isLoading={this.props.isLoading} move={this.props.move} updateState={this.props.updateState} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} ></SearchText>
+                <SearchText moveTrue={this.props.moveTrue} isLoading={this.props.isLoading} move={this.props.move} updateState={this.props.updateState} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} ></SearchText>
             </div>
         )
     }

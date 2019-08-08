@@ -16,7 +16,7 @@ class SearchContainer extends React.Component {
             <div id='SearchContainer' className='animated heartBeat'>
                 {/* <Dropdown toggleSelected={this.props.toggleSelected} title="Query" dropDown={this.props.dropDown} ></Dropdown> */}
                 {/* <Search updateState={this.props.updateState} data={this.props.data}></Search> */}
-                <Search isLoading={this.props.isLoading} move={this.props.move} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} dropDown={this.props.dropDown} updateState={this.props.updateState} ></Search>
+                <Search moveTrue={this.props.moveTrue} isLoading={this.props.isLoading} move={this.props.move} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} dropDown={this.props.dropDown} updateState={this.props.updateState} ></Search>
             </div>
         )
     }

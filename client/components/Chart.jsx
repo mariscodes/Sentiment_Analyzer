@@ -52,9 +52,17 @@ const LoadingIndicator = props => {
             alignItems: "center"
           }}
         >
-          {/* <Loader type="BallTriangle" color="#EAC67A" height="100" width="100" /> */}
+          <Loader type="BallTriangle" color="#EAC67A" height="100" width="100" />
           {/* <Loader type="Bars" color="#EAC67A" height="100" width="100" /> */}
-          <Loader type="Bars" color="#EAC67A" height="100" width="100" />
+          {/* <Loader type="Circles" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="Audio" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="Grid" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="Hearts" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="Oval" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="Puff" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="Rings" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="TailSpin" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="ThreeDots" color="#EAC67A" height="100" width="100" /> */}
         </div>
     );
 }
