@@ -229,7 +229,7 @@ class App extends React.Component {
         return (
             <div id='App'>
                 {/* <SentimentSearchContainer updateState={this.update} className={classes.join(' ')} onClick={this.move} data={this.state.data}></SentimentSearchContainer> */}
-                <SentimentSearchContainer isLoading={this.state.isLoading} move={this.move} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.toggleSelected} dropDown={this.state.dd_options} updateState={this.update} className={classes.join(' ')} onClick={this.move} ></SentimentSearchContainer>
+                <SentimentSearchContainer moveTrue={this.moveTrue} isLoading={this.state.isLoading} move={this.move} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.toggleSelected} dropDown={this.state.dd_options} updateState={this.update} className={classes.join(' ')} onClick={this.move} ></SentimentSearchContainer>
                 <Chart moveTrue={this.moveTrue} isLoading={this.state.isLoading} sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} dd={this.state.dd_options} ></Chart>
                 {/* <Chart sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} ></Chart> */}
                 {/* grab values associated with data */}

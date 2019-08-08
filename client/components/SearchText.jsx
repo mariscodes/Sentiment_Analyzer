@@ -13,6 +13,7 @@ class SearchText extends React.Component {
     }
 
     search(event) {
+        this.props.moveTrue();
         // console.log('keyed up');
         console.log('E.TARGET.VALUE = ' + event.target.value)
             if (event.defaultPrevented) {
@@ -20,6 +21,7 @@ class SearchText extends React.Component {
             }
             var key = event.key || event.keyCode;
             if (key === 'Enter') {
+                // this.props.moveTrue();
                 trackPromise(
                 fetch('/', {
                     method: 'POST',
