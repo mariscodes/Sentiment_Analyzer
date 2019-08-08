@@ -2,7 +2,8 @@ body {
     position: relative;
     height: 140vh;
     width: 100%;
-    background-color: #233237;
+    /* background-color: #233237; */
+    background-color: pink;
     color: rgb(223, 76, 60);
     font-size: 24px;
     font-weight: 200;

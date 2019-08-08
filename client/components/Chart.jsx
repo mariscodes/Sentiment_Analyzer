@@ -47,17 +47,47 @@ class Chart extends React.Component {
     }
     
     render() {
+        console.log('THIS DROPS DD IN CHART IS:', this.props.dd);
         console.log('Das Data => ', this.props.sentimentData.data);
         console.log('PROPDATA FOR CHART' +this.props.sentimentData.data.labels)
-
-        return (
-            <div id='haris' class='animated fadeInUp'>
-                {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
-                <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
-                <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
-                {/* {console.log('das data => ', this.props.data)} */}
-            </div>
-        )
+        if (this.props.dd[0].selected && this.props.dd[1].selected) {
+            return (
+                <div id='haris' class='animated fadeInUp'>
+                    {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                    <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                    <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                    {/* {console.log('das data => ', this.props.data)} */}
+                </div>
+            )
+        } else if (this.props.dd[0].selected) {
+            return (
+                <div id='haris' class='animated fadeInUp'>
+                    {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                    <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                    {/* <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                    {/* {console.log('das data => ', this.props.data)} */}
+                </div>
+            )
+        } else if (this.props.dd[1].selected) {
+            return (
+                <div id='haris' class='animated fadeInUp'>
+                    {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                    {/* <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                    <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                    {/* {console.log('das data => ', this.props.data)} */}
+                </div>
+            )
+        } else {
+            return null;
+        }
+        // return (
+        //     <div id='haris' class='animated fadeInUp'>
+        //         {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+        //         <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+        //         <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+        //         {/* {console.log('das data => ', this.props.data)} */}
+        //     </div>
+        // )
     }
 }
 

@@ -2,7 +2,10 @@
     position: absolute;
     width: 95%;
     height: 5vh;
-    
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     /* background-color: green; */
 }
 
@@ -24,4 +27,21 @@
 ::placeholder {
     color: #EAC67A;
     opacity: 0.8;
+}
+
+.dd-wrapper {
+    font-size: 24px;
+    color: #EAC67A;
+    z-index: 5;
+}
+
+.dd-header {
+    width: 110%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: none;
 }

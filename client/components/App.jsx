@@ -17,6 +17,20 @@ class App extends React.Component {
         super();
         this.state = {
             move_SentimentSearchContainer: false,
+            dd_options: [
+                {
+                    id: 0,
+                    title: 'Sentiment',
+                    selected: false,
+                    key: 'dd_options'
+                },
+                {
+                    id: 1,
+                    title: 'Frequency',
+                    selected: false,
+                    key: 'dd_options'
+                }
+            ],
             sentimentData: {
                 data: { 
                     name: 'Sentiment Over Time',
@@ -24,7 +38,7 @@ class App extends React.Component {
                     datasets: [
                         {
                             label: 'Sentiment',
-                            fill: false,
+                            fill: true,
                             lineTension: 0.25,
                             backgroundColor: ['rgba(75,192,192,1)'],
                             borderColor: 'rgba(75,192,192,1)',
@@ -53,7 +67,7 @@ class App extends React.Component {
                     datasets: [
                         {
                             label: 'Frequency',
-                            fill: false,
+                            fill: true,
                             lineTension: 0.25,
                             backgroundColor: ['red'],
                             borderColor: 'red',
@@ -61,7 +75,7 @@ class App extends React.Component {
                             borderDash: [],
                             borderDashOffset: 0.0,
                             borderJoinStyle: 'miter',
-                            pointBorderColor: 'pink',
+                            pointBorderColor: 'red',
                             // pointBackgroundColor: '#984B43',
                             pointBorderWidth: 1,
                             pointHoverRadius: 5,
@@ -108,8 +122,14 @@ class App extends React.Component {
                         ]
                     },
                     // animation: {
+                    //     duration: 2000,
                     //     onProgress: function(animation) {
-                    //         progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+                    //         progress.value = animation.currentStep / animation.numSteps;
+                    //     },
+                    //     onComplete: function(animation) {
+                    //         window.setTimeout(function() {
+                    //             progress.value = 0;
+                    //         }, 2000);
                     //     }
                     // },
                 }
@@ -147,8 +167,14 @@ class App extends React.Component {
                         ]
                     },
                     // animation: {
+                    //     duration: 2000,
                     //     onProgress: function(animation) {
-                    //         progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+                    //         progress.value = animation.currentStep / animation.numSteps;
+                    //     },
+                    //     onComplete: function(animation) {
+                    //         window.setTimeout(function() {
+                    //             progress.value = 0;
+                    //         }, 2000);
                     //     }
                     // },
                 }         
@@ -156,6 +182,7 @@ class App extends React.Component {
         }
         this.move = this.move.bind(this);
         this.update = this.update.bind(this);
+        this.toggleSelected = this.toggleSelected.bind(this);
     }
     update(newData) {
         console.log('works1');
@@ -179,7 +206,15 @@ class App extends React.Component {
             move_SentimentSearchContainer: !move_SentimentSearchContainer
         });
     }
+    toggleSelected(id, key) {
+        let temp = this.state[key];
+        temp[id].selected = !temp[id].selected;
+        this.setState({
+            [key]: temp
+        })
+    }
     render() {
+        console.log('THIS SI THE STATE INSIDE TOP COMPOENNTN', this.state);
         // console.log('APP.JSX DATA' + this.state.data)
         let classes = [''];
         if (this.state.move_SentimentSearchContainer) {
@@ -188,8 +223,9 @@ class App extends React.Component {
         return (
             <div id='App'>
                 {/* <SentimentSearchContainer updateState={this.update} className={classes.join(' ')} onClick={this.move} data={this.state.data}></SentimentSearchContainer> */}
-                <SentimentSearchContainer updateState={this.update} className={classes.join(' ')} onClick={this.move} ></SentimentSearchContainer>
-                <Chart sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} ></Chart>
+                <SentimentSearchContainer toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.toggleSelected} dropDown={this.state.dd_options} updateState={this.update} className={classes.join(' ')} onClick={this.move} ></SentimentSearchContainer>
+                <Chart sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} dd={this.state.dd_options} ></Chart>
+                {/* <Chart sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} ></Chart> */}
                 {/* grab values associated with data */}
                 {/* {console.log(this.state.data.datasets[0]['data'])} */}
                 {/* grab values associated with labels */}

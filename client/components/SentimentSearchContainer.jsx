@@ -3,7 +3,7 @@ import React from 'react';
 // import components
 import Sentiment from './Sentiment.jsx';
 import SearchContainer from './SearchContainer.jsx';
-
+import Dropdown from './Dropdown.jsx';
 // import css
 import './../styling/Sentiment.css';
 import './../styling/SentimentSearchContainer.css';
@@ -28,6 +28,7 @@ class SentimentSearchContainer extends React.Component {
         });
       }
     render() {
+        console.log('THIS PROPS IN SENT SERCH IS:', this.props);
         let classes = ['main'];
         if (this.state.addClass) {
             classes.push('move');
@@ -36,7 +37,8 @@ class SentimentSearchContainer extends React.Component {
             <div id='SentimentSearchContainer'>
                 <Sentiment classes={classes.join(' ')} clickMe={this.toggle}></Sentiment>
                 {/* <SearchContainer updateState={this.props.updateState} data={this.props.data}></SearchContainer> */}
-                <SearchContainer updateState={this.props.updateState} ></SearchContainer>
+                <SearchContainer toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} updateState={this.props.updateState} ></SearchContainer>
+                {/* <Dropdown toggleSelected={this.props.toggleSelected} title="Query" dropDown={this.props.dropDown} ></Dropdown> */}
             </div>
         )
     }

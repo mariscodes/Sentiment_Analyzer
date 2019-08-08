@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import components
-
+import Dropdown from './Dropdown.jsx';
 // import css
 import './../styling/SearchText.css';
 import 'animate.css';
@@ -46,6 +46,7 @@ class SearchText extends React.Component {
     render() {
         return (
                 <div id='SearchText'>
+                    <Dropdown toggleSelected={this.props.toggleSelected} title="Query" dropDown={this.props.dropDown} ></Dropdown>
                     <input type='text' autocomplete = 'off'placeholder='Enter a search item...' id='Input' onKeyUp={this.search}/>
                 </div>
         )

@@ -5,6 +5,7 @@
     background-color: #162327;
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
     align-items: center;
     border-style: solid;
     border-color: #EAC67A;
