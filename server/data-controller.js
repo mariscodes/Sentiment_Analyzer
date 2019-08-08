@@ -64,8 +64,8 @@ dataController.processSentiment = (request, response, next) => {
   // Build query.
   const procesSentimentQuery = {
     name: 'processsentiment-query',
-    text: 'SELECT * FROM mastertable WHERE text ILIKE $1;',
-    values: [`%${request.body.queryString}%`],
+    text: 'SELECT time, text FROM mastertable WHERE gintext @@ plainto_tsquery($1);',
+    values: [request.body.queryString],
   }
 
   // Execute query.

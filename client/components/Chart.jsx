@@ -1,9 +1,7 @@
-//
-//
-//
-
 import React from 'react';
 import { Line, Pie, Bar, Doughnut, Bubble, Radar, } from 'react-chartjs-2';
+import { usePromiseTracker } from "react-promise-tracker";
+import Loader from 'react-loader-spinner';
 
 // import './chartrender.js';
 
@@ -39,47 +37,102 @@ import 'animate.css';
     //   }
     // ]
   // };
+// const { promiseInProgress } = usePromiseTracker();
+const LoadingIndicator = props => {
+    const { promiseInProgress } = usePromiseTracker();
+    return (
+        promiseInProgress &&
+        <div
+          style={{
+            marginTop: '40px',
+            width: "100%",
+            height: "100",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          {/* <Loader type="BallTriangle" color="#EAC67A" height="100" width="100" /> */}
+          {/* <Loader type="Bars" color="#EAC67A" height="100" width="100" /> */}
+          <Loader type="Bars" color="#EAC67A" height="100" width="100" />
+        </div>
+    );
+}
 
 class Chart extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
     }
-    
+
     render() {
-        console.log('THIS DROPS DD IN CHART IS:', this.props.dd);
-        console.log('Das Data => ', this.props.sentimentData.data);
-        console.log('PROPDATA FOR CHART' +this.props.sentimentData.data.labels)
+        console.log('THIS DROPS DD IN CHART IS:', this.props);
+        // console.log('Das Data => ', this.props.sentimentData.data);
+        // console.log('PROPDATA FOR CHART' +this.props.sentimentData.data.labels)
         if (this.props.dd[0].selected && this.props.dd[1].selected) {
-            return (
-                <div id='haris' class='animated fadeInUp'>
-                    {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
-                    <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
-                    <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
-                    {/* {console.log('das data => ', this.props.data)} */}
-                </div>
-            )
+            // this.props.move();
+            if (this.props.isLoading) {
+                // this.props.move();
+                return (
+                    <div>
+                        <LoadingIndicator/>
+                    </div>
+                    )
+            } else {
+                return (
+                    <div id='haris' class='animated fadeInUp'>
+                        {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                        <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                        <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                        {/* {console.log('das data => ', this.props.data)} */}
+                    </div>
+                )
+            }
         } else if (this.props.dd[0].selected) {
-            return (
-                <div id='haris' class='animated fadeInUp'>
-                    {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
-                    <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
-                    {/* <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line> */}
-                    {/* {console.log('das data => ', this.props.data)} */}
-                </div>
-            )
+            // this.props.move();
+            if (this.props.isLoading) {
+                // this.props.move();
+                return (
+                    <div>
+                        <LoadingIndicator/>
+                    </div>
+                    )
+            } else {
+                return (
+                    <div id='haris' class='animated fadeInUp'>
+                        {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                        <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                        {/* <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                        {/* {console.log('das data => ', this.props.data)} */}
+                    </div>
+                )
+            }
         } else if (this.props.dd[1].selected) {
-            return (
-                <div id='haris' class='animated fadeInUp'>
-                    {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
-                    {/* <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line> */}
-                    <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
-                    {/* {console.log('das data => ', this.props.data)} */}
+            // this.props.move();
+            if (this.props.isLoading) {
+                // this.props.move();
+                return (
+                <div>
+                    <LoadingIndicator/>
                 </div>
-            )
+                )
+            } else {
+                return (
+                    <div id='haris' class='animated fadeInUp'>
+                        {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                        {/* <Line data = {this.props.sentimentData.data} options={this.props.sentimentOptions.options} width={1000} height={400} className='animate fadeIn'></Line> */}
+                        <Line data = {this.props.frequencyData.data} options={this.props.frequencyOptions.options} width={1000} height={400} className='animate fadeIn'></Line>
+                        {/* {console.log('das data => ', this.props.data)} */}
+                    </div>
+                )
+            }
         } else {
             return null;
         }
+        // return (
+        // <div>
+        //     <LoadingIndicator/>
+        // </div>
+        // )
         // return (
         //     <div id='haris' class='animated fadeInUp'>
         //         {/* <Line data = {this.props.data} options={this.props.options} width={1000} height={400} className='animate fadeIn'></Line> */}

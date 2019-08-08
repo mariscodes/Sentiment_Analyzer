@@ -37,7 +37,7 @@ class SentimentSearchContainer extends React.Component {
             <div id='SentimentSearchContainer'>
                 <Sentiment classes={classes.join(' ')} clickMe={this.toggle}></Sentiment>
                 {/* <SearchContainer updateState={this.props.updateState} data={this.props.data}></SearchContainer> */}
-                <SearchContainer toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} updateState={this.props.updateState} ></SearchContainer>
+                <SearchContainer isLoading={this.props.isLoading} move={this.props.move} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} updateState={this.props.updateState} ></SearchContainer>
                 {/* <Dropdown toggleSelected={this.props.toggleSelected} title="Query" dropDown={this.props.dropDown} ></Dropdown> */}
             </div>
         )

@@ -16,7 +16,7 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            move_SentimentSearchContainer: false,
+            isLoading: true,
             dd_options: [
                 {
                     id: 0,
@@ -146,8 +146,8 @@ class App extends React.Component {
                             ticks: {
                                 fontColor:'white',
                                 beginAtZero: false,
-                                min: -20,
-                                max: 300,
+                                // min: -20,
+                                // max: 300,
                             },
                             gridLines: {
                                 color: '#334449'
@@ -181,6 +181,7 @@ class App extends React.Component {
             }
         }
         this.move = this.move.bind(this);
+        this.moveTrue = this.moveTrue.bind(this);
         this.update = this.update.bind(this);
         this.toggleSelected = this.toggleSelected.bind(this);
     }
@@ -202,9 +203,14 @@ class App extends React.Component {
         console.log('works');
     }
     move() {
-        this.setState({
-            move_SentimentSearchContainer: !move_SentimentSearchContainer
-        });
+        this.setState(prevState => ({
+            isLoading: false,
+        }));
+    }
+    moveTrue() {
+        this.setState(prevState => ({
+            isLoading: true,
+        }));
     }
     toggleSelected(id, key) {
         let temp = this.state[key];
@@ -223,8 +229,8 @@ class App extends React.Component {
         return (
             <div id='App'>
                 {/* <SentimentSearchContainer updateState={this.update} className={classes.join(' ')} onClick={this.move} data={this.state.data}></SentimentSearchContainer> */}
-                <SentimentSearchContainer toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.toggleSelected} dropDown={this.state.dd_options} updateState={this.update} className={classes.join(' ')} onClick={this.move} ></SentimentSearchContainer>
-                <Chart sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} dd={this.state.dd_options} ></Chart>
+                <SentimentSearchContainer isLoading={this.state.isLoading} move={this.move} toggleSelected={this.props.toggleSelected} dropDown={this.props.dropDown} toggleSelected={this.toggleSelected} dropDown={this.state.dd_options} updateState={this.update} className={classes.join(' ')} onClick={this.move} ></SentimentSearchContainer>
+                <Chart moveTrue={this.moveTrue} isLoading={this.state.isLoading} sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} dd={this.state.dd_options} ></Chart>
                 {/* <Chart sentimentData={this.state.sentimentData} frequencyData={this.state.frequencyData} sentimentOptions={this.state.sentimentOptions} frequencyOptions={this.state.frequencyOptions} ></Chart> */}
                 {/* grab values associated with data */}
                 {/* {console.log(this.state.data.datasets[0]['data'])} */}

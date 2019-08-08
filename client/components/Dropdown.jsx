@@ -63,11 +63,11 @@ class Dropdown extends React.Component {
             }
         </div>
         {/* <ReactCSSTransitionGroup transitionName = "menu" transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>  */}
-        {listOpen && <ul className="dd-list" >
+        {listOpen && <div className="dd-list" >
             {dropDown.map ((item) => (
-              <li className="dd-list-item" onClick={() => this.props.toggleSelected(item.id, item.key)} key={item.id} >{item.title} {item.selected && <FontAwesomeIcon icon={faCheck}/>}</li>
+              <div className="dd-list-item" onClick={() => this.props.toggleSelected(item.id, item.key)} key={item.id} >{item.title} {item.selected && <FontAwesomeIcon icon={faCheck}/>}</div>
             ))}
-        </ul>}
+        </div>}
         {/* </ReactCSSTransitionGroup> */}
       </div>
     )
