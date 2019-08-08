@@ -1,9 +1,11 @@
 #SearchContainer {
     position: relative;
-    width: 175%;
+    width: 150%;
     height: 7.5vh;
     /* background-color: blueviolet; */
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
 }
+
